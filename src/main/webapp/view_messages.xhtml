@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+			xmlns:h="http://java.sun.com/jsf/html"
+			xmlns:f="http://java.sun.com/jsf/core"
+			xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<h:head>
+		<title>Самолетни полети</title>
+		
+		 <f:event type="preRenderView" listener="#{messagesFilter.filter()}" />
+	</h:head>
+<body style="background-color:powderblue;">
+		</body>
+	<h:body style="padding:10px 200px;">
+						
+		<ui:include src="header.xhtml" />
+				
+		<h2>Закупени билети</h2>
+				
+		<h:graphicImage 
+							value="resources/images/plane.png"
+							style="height:80px; padding-right:10px; 
+										  padding-bottom:10px; float:right;"/>
+		<h:form>	
+			<h:panelGrid columns="2" cellpadding="5">
+						
+				Филтрирай по 
+				<h:selectOneRadio 
+											value="#{messagesFilter.filterBy}">
+						<f:selectItems  
+							value="#{messagesFilter.filterByOptions}"/>					</h:selectOneRadio>
+				
+				
+				Филтриращ текст
+				<h:inputText required="false" 
+										value="#{messagesFilter.filterText}"/>
+											
+				<h:panelGroup/>
+				<h:commandButton value="Филтрирай"
+										 action="#{messagesFilter.filter()}"/>	 
+			</h:panelGrid>
+		</h:form>
+		
+		<br/><br/>
+		<hr/>
+		<br/><br/>
+		
+		<h:dataTable 
+							value="#{messagesFilter.filteredMessages}" 
+							var="msg" border="1" bgcolor="white">
+			
+			<h:column>    				
+		      <f:facet name="header">Номер на полет</f:facet>    				
+		      #{msg.id}
+		   </h:column>
+			
+			<h:column>    				
+		      <f:facet name="header">Име на авиокомпания</f:facet>    				
+		      #{msg.senderName}
+		   </h:column>
+
+		   <h:column>    				
+		      <f:facet name="header">Имена</f:facet>    				
+		      #{msg.message}
+		   </h:column>
+		   
+			<h:column>    				
+		      <f:facet name="header">Цена</f:facet>    				
+		      #{msg.price}
+		   </h:column>
+		   <h:column>    				
+		      <f:facet name="header">Дата</f:facet>    				
+		      #{msg.date}
+		   </h:column>
+		   <h:column>    				
+		      <f:facet name="header">Максимално тегло на ръчния багаж</f:facet>    				
+		      #{msg.maxR}
+		   </h:column>
+		   
+		   <h:column>    				
+		      <f:facet name="header">Максимално тегло на допълнителния багаж</f:facet>    				
+		      #{msg.maxD}
+		   </h:column>
+		   
+		   <h:column>    				
+		      <f:facet name="header">Редактирай</f:facet>    				
+		      <h:form>
+		      <h:commandButton value="Редактирай" action="#{contacts.init(msg.id)}" />
+		      </h:form>
+		   </h:column>
+		   
+		    <h:column>    				
+		      <f:facet name="header">Изтриване</f:facet>    				
+		      <h:form>
+		      <h:commandButton value="Изтрий" action="#{messagesFilter.deleteMessage(msg.id)}" />
+		      </h:form>
+		   </h:column>
+		   
+		   
+		</h:dataTable>
+		
+	</h:body>
+</html>
+

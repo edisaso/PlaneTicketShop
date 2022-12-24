@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+			xmlns:h="http://java.sun.com/jsf/html"
+			xmlns:f="http://java.sun.com/jsf/core"
+			xmlns:ui="http://java.sun.com/jsf/facelets">
+
+
+	<h:head>
+		<title>Super Mario</title>
+		
+	</h:head>
+
+	<h:body style="padding:10px 200px;">
+				
+		<ui:include src="header.xhtml" />
+		
+		<h2>Галерия</h2>
+		
+		<!-- Тяло на страницата -->
+		<h:panelGrid cellpadding="10" columns="6" 
+									border="1" 
+					columnClasses="mario_style, luigi_style, 
+													princess_style, bowser_style,
+													                     waluigi_style,wario_style">
+			
+
+							
+		
+			<link rel="stylesheet" type="text/css" href="../css/gallery.css" >
+			<div align="center" class="tile_div">
+			<table class="tile_table">
+			<style> 
+			table, th, td {
+			border:1px solid black;
+			}
+			td{
+			background:#ff0000 }
+			</style>
+                <TR id="row1">
+			<td onclick="location.href='http://localhost:8080/testDBtest/resources/images/wario.png'">
+			 <img class="tile_image" height="100px" width="100px" src="resources/images/wario.png"/> 
+                        <p class="tile_p">Wario</p>     
+                       
+			</td>
+			<td onclick="location.href='http://localhost:8080/testDBtest/resources/images/mario.png'">
+			 <img class="tile_image" height="100px" width="100px" src="resources/images/mario.png"/> 
+                        <p class="tile_p">Mario</p> 
+			</td>
+			</TR>
+			<TR id="row2">
+			<td onclick="location.href='http://localhost:8080/testDBtest/resources/images/bowser.png'">
+			 <img class="tile_image" height="100px" width="100px" src="resources/images/bowser.png"/> 
+                        <p class="tile_p">Bowser</p> 
+			</td>
+			<td onclick="location.href='http://localhost:8080/testDBtest/resources/images/luigi.png'">
+			 <img class="tile_image" height="100px" width="100px" src="resources/images/luigi.png"/> 
+                        <p class="tile_p">Luigi</p> 
+			</td>
+			</TR>
+			<TR id="row3">
+			<td onclick="location.href='http://localhost:8080/testDBtest/resources/images/waluigi.png'">
+			 <img class="tile_image" height="100px" width="100px" src="resources/images/waluigi.png"/> 
+                        <p class="tile_p">Waluigi</p> 
+			</td>
+			<td onclick="location.href='http://localhost:8080/testDBtest/resources/images/princess_peach.png'">
+			 <img class="tile_image" height="100px" width="100px" src="resources/images/princess_peach.png"/> 
+                        <p class="tile_p">Princess Peach</p> 
+			</td>
+			 </TR>
+			 </table>
+            </div>
+		</link></h:panelGrid>
+		<!-- Тяло на страницата -->
+		
+	</h:body>
+</html>

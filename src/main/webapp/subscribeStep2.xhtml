@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+			xmlns:h="http://java.sun.com/jsf/html"
+			xmlns:f="http://java.sun.com/jsf/core"
+			xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<h:head>
+		<title>Super Mario</title>
+
+		<style>
+			 input[type=submit] {margin-right:10px;}
+		</style>
+	</h:head>
+
+	<h:body style="padding:10px 200px;">
+						
+		<ui:include src="header.xhtml" />				
+		
+		<h2>Абониране</h2>
+		
+		<h:graphicImage 							
+								value="resources/images/envelope.png"
+								style="height:30px;padding-right:50px;
+									 	padding-bottom:200px;float:left;"/>
+		
+		<h:form>
+				Изберете подгрупа от категорията 
+				#{subscribe.selectedCategory}, 
+				за която искате да получавате съобщения: 
+				<br/><br/>
+			
+			<h:selectOneRadio 
+							value="#{subscribe.selectedSubCategory}">
+				<f:selectItems
+			value="#{subscribe.subscribtionSubCategories}"/>				</h:selectOneRadio>	
+				
+			<br/>
+			
+				<h:commandButton		value="Назад" 
+										action="#{subscribe.goToStep1()}"/>
+			<h:commandButton			value="Напред" 
+										action="#{subscribe.goToStep3()}"/>
+		
+		</h:form>
+		
+	</h:body>	
+</html>

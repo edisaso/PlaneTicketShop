@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+			xmlns:h="http://java.sun.com/jsf/html"
+			xmlns:f="http://java.sun.com/jsf/core"
+			xmlns:ui="http://java.sun.com/jsf/facelets">
+
+
+	<h:head>
+		<title>Super Mario</title>
+		<style>
+			.souvenir
+			{
+					border:1px solid gray; background:#99bbbb; 
+					text-align:center; width:150px; float:left; 
+					margin-left:5px;
+			}
+
+			.souvenir_image
+			{
+					background:white; height:150px;
+					padding:0px 3px;
+			}
+		</style>
+	</h:head>
+
+	<h:body style="padding:10px 200px;">
+				
+		<ui:include src="header.xhtml" />
+		
+		<h2>Сувенири</h2>
+		
+		<ui:repeat value="#{orderMB.products}" var="p" >
+			<h:panelGrid columns="1" cellspacing="5" 
+										styleClass="souvenir">		
+				
+				<span style="color:white;">
+						#{p.productName} 
+				</span>
+
+				<h:graphicImage styleClass="souvenir_image" 
+								value="resources/images/#{p.image}" />			
+				
+				<h:panelGroup>Цена #{p.price}лв</h:panelGroup>						
+				
+				<h:form>
+						<h:commandButton 
+									value="Закупи #{p.productName}" 
+									action="#{orderMB.purchase(p.id)}" />				
+				</h:form>		
+				
+			</h:panelGrid>
+		</ui:repeat>
+		
+	</h:body>
+</html>
+

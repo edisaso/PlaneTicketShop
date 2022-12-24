@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+			xmlns:h="http://java.sun.com/jsf/html"
+			xmlns:f="http://java.sun.com/jsf/core"
+			xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<h:head>
+		<title>Самолетни полети</title>
+	</h:head>
+<body style="background-color:powderblue;">
+		</body>
+	<h:body style="padding:10px 200px;">
+						
+		<ui:include src="header.xhtml" />
+				
+		<h2>Закупи билет</h2>
+				
+		<h:graphicImage value="resources/images/plane.png"
+		
+							style="height:80px; padding-right:10px; padding-bottom:10px; float:right;"/>
+							<h:messages style = "color:red;margin:8px;" /> 
+		<h:form>
+			
+			<h:panelGrid columns="2">		
+				
+			
+				Име на авиокомпания <h:selectOneMenu required="true" id="name" value="#{contacts.senderName}">
+				<f:selectItem itemValue="Bulgaria Air" itemLabel="Bulgaria Air" />
+    <f:selectItem itemValue="British Airlines" itemLabel="British Airlines" />
+    <f:selectItem itemValue="Russia Air" itemLabel="Russia Air" /> 
+</h:selectOneMenu>
+				
+				Имена <h:inputTextarea required="true"  value="#{contacts.message}" requiredMessage="Името e задължително!"/>
+				Цена на билет <h:inputText required="true" value="#{contacts.price}" requiredMessage="Цената е задължителна!">
+			
+			 </h:inputText>
+				Изберете дата за полет(година-месец-ден):
+							<h:inputText required="true" id="date"
+									value="#{contacts.date}" requiredMessage="Датата е задължителна!">
+									 <f:convertDateTime pattern="yyyy-MM-dd"/>  </h:inputText>
+									Максимално тегло на ръчния багаж:
+							<h:inputText required="true" id="maxRR"
+									value="#{contacts.maxR}" requiredMessage="Максимално тегло на ръчния багаж е задължително!"/>
+									Максимално тегло на допълнителния багаж:
+							<h:inputText required="true" id="maxDD"
+									value="#{contacts.maxD}" requiredMessage="Максимално тегло на допълнителен багаж е задължително!"/> 
+				
+				<h:inputHidden value="#{contacts.id}"/>
+				<h:commandButton value="Изпрати" action="#{contacts.send()}"/>	 
+			</h:panelGrid>
+		</h:form>
+		
+	</h:body>
+</html>
+

@@ -1,0 +1,21 @@
+.tile_div{
+    text-align: center;
+    width: 100%;
+}
+
+.tile_table{
+    border-collapse:collapse;
+}
+
+.tile_table tr, td{
+  text-align: center;
+}
+
+.tile_image{
+    padding: 3px 5px 0px 3px;
+    margin: 5px 5px 0px 5px;
+}
+
+.tile_p{
+    line-height: 0px;
+}
